@@ -10,13 +10,11 @@ class Rectangle(Figure):
         self.side_a = side_a
         self.side_b = side_b
 
-        if not isinstance(self.side_a, int | float):
-            raise ValueError(f'Side must be int or float, got {type(self.side_a)} instead')
-        if not isinstance(self.side_b, int | float):
-            raise ValueError(f'Side must be int or float, got {type(self.side_b)} instead')
+        self.check_type(self.side_a)
+        self.check_type(self.side_b)
 
-        if self.side_a <= 0 or self.side_b <= 0:
-            raise ValueError('Side cannot be equal and less then 0')
+        self.check_is_positive_num(self.side_a)
+        self.check_is_positive_num(self.side_b)
 
     @property
     def perimeter(self) -> int | float:

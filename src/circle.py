@@ -10,11 +10,8 @@ class Circle(Figure):
     def __init__(self, radius: (int, float)) -> None:
         self.radius = radius
 
-        if not isinstance(self.radius, int | float):
-            raise ValueError(f'Side must be int or float, got {type(self.radius)} instead')
-
-        if self.radius <= 0:
-            raise ValueError('Radius cannot be equal and less then 0')
+        self.check_type(self.radius)
+        self.check_is_positive_num(self.radius)
 
     @property
     def perimeter(self) -> int | float:

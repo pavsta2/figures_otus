@@ -23,3 +23,13 @@ class Figure(ABC):
             raise ValueError(f'Type of argument "figure" must be "Figure", '
                              f'got {type(figure)} instead')
         return self.area + figure.area
+
+    @staticmethod
+    def check_type(argument):
+        if not isinstance(argument, int | float) or isinstance(argument, bool):
+            raise ValueError(f'Side must be int or float, got {type(argument)} instead')
+
+    @staticmethod
+    def check_is_positive_num(argument):
+        if argument <= 0:
+            raise ValueError('Figure argument cannot be equal and less then 0')

@@ -12,15 +12,13 @@ class Triangle(Figure):
         self.side_b = side_b
         self.side_c = side_c
 
-        if not isinstance(self.side_a, int | float):
-            raise ValueError(f'Side must be int or float, got {type(self.side_a)} instead')
-        if not isinstance(self.side_b, int | float):
-            raise ValueError(f'Side must be int or float, got {type(self.side_b)} instead')
-        if not isinstance(self.side_c, int | float):
-            raise ValueError(f'Side must be int or float, got {type(self.side_c)} instead')
+        self.check_type(self.side_a)
+        self.check_type(self.side_b)
+        self.check_type(self.side_c)
 
-        if self.side_a <= 0 or self.side_b <= 0 or self.side_c <= 0:
-            raise ValueError('Side cannot be equal and less then 0')
+        self.check_is_positive_num(side_a)
+        self.check_is_positive_num(side_b)
+        self.check_is_positive_num(side_c)
 
         if not ((self.side_a + self.side_b) > self.side_c and
                 (self.side_b + self.side_c) > self.side_a and
