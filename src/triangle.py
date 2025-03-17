@@ -1,6 +1,6 @@
 """Это модуль класса треугольника"""
 from math import sqrt
-from figure import Figure
+from src.figure import Figure
 
 
 class Triangle(Figure):
@@ -12,13 +12,8 @@ class Triangle(Figure):
         self.side_b = side_b
         self.side_c = side_c
 
-        self.check_type(self.side_a)
-        self.check_type(self.side_b)
-        self.check_type(self.side_c)
-
-        self.check_is_positive_num(side_a)
-        self.check_is_positive_num(side_b)
-        self.check_is_positive_num(side_c)
+        self.check_type(self.side_a, self.side_b, self.side_c)
+        self.check_is_positive_num(self.side_a, self.side_b, self.side_c)
 
         if not ((self.side_a + self.side_b) > self.side_c and
                 (self.side_b + self.side_c) > self.side_a and

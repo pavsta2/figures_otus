@@ -25,11 +25,15 @@ class Figure(ABC):
         return self.area + figure.area
 
     @staticmethod
-    def check_type(argument):
-        if not isinstance(argument, int | float) or isinstance(argument, bool):
-            raise ValueError(f'Side must be int or float, got {type(argument)} instead')
+    def check_type(*args):
+        """Метод для проверки типа данных, передаваемого в качестве стороны фигуры"""
+        for arg in args:
+            if not isinstance(arg, int | float) or isinstance(arg, bool):
+                raise ValueError(f'Side must be int or float, got {type(arg)} instead')
 
     @staticmethod
-    def check_is_positive_num(argument):
-        if argument <= 0:
-            raise ValueError('Figure argument cannot be equal and less then 0')
+    def check_is_positive_num(*args):
+        """Метод для проверки положительности числа, передаваемого в качестве стороны фигуры"""
+        for arg in args:
+            if arg <= 0:
+                raise ValueError('Figure argument cannot be equal and less then 0')

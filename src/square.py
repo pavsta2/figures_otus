@@ -1,5 +1,5 @@
 """Это модуль класса квадрата"""
-from rectangle import Rectangle
+from src.rectangle import Rectangle
 
 
 class Square(Rectangle):

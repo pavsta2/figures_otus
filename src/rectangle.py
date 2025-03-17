@@ -1,5 +1,5 @@
 """Это модуль класса прямоугольника"""
-from figure import Figure
+from src.figure import Figure
 
 
 class Rectangle(Figure):
@@ -10,11 +10,8 @@ class Rectangle(Figure):
         self.side_a = side_a
         self.side_b = side_b
 
-        self.check_type(self.side_a)
-        self.check_type(self.side_b)
-
-        self.check_is_positive_num(self.side_a)
-        self.check_is_positive_num(self.side_b)
+        self.check_type(self.side_a, self.side_b)
+        self.check_is_positive_num(self.side_a, self.side_b)
 
     @property
     def perimeter(self) -> int | float:
