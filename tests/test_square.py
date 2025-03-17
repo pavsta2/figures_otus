@@ -6,52 +6,49 @@ from src.square import Square
 @pytest.mark.posit
 @pytest.mark.parametrize('type_of_data',
                          [
-                             'integer',
-                             'float'
+                             2,
+                             2.5
                           ],
                          ids=[
                              'integers as sides',
                              'floats as sides'
                          ])
-def test_square_creat_posit(type_of_data, get_data_square_positive):
+def test_square_creat_posit(type_of_data):
     """Позитивные тесты создания объектов Квадрата"""
-    side_a = get_data_square_positive[type_of_data]
-    try:
-        Square(side_a)
-    except ValueError as exc:
-        assert False, f'Создание объекта прямоугольника со стороной {side_a} вызывает ошибку {exc}'
+    side_a = type_of_data
+    assert Square(side_a)
 
 
 @pytest.mark.posit
 @pytest.mark.parametrize('type_of_data',
                          [
-                             'integer',
-                             'float'
+                             2,
+                             2.5
                           ],
                          ids=[
                              'integers as sides',
                              'floats as sides'
                          ])
-def test_square_perimet_posit(type_of_data, get_data_square_positive):
+def test_square_perimet_posit(type_of_data):
     """Позитивные тесты метода расчета периметра Квадрата"""
-    side_a = get_data_square_positive[type_of_data]
+    side_a = type_of_data
     test_square = Square(side_a)
-    assert test_square.perimeter == (side_a) * 4, 'Расчет периметра квадрата неверен'
+    assert test_square.perimeter == side_a * 4, 'Расчет периметра квадрата неверен'
 
 
 @pytest.mark.posit
 @pytest.mark.parametrize('type_of_data',
                          [
-                             'integer',
-                             'float'
+                             2,
+                             2.5
                           ],
                          ids=[
                              'integers as sides',
                              'floats as sides'
                          ])
-def test_square_area_posit(type_of_data, get_data_square_positive):
+def test_square_area_posit(type_of_data):
     """Позитивные тесты метода расчета площади Квадрата"""
-    side_a = get_data_square_positive[type_of_data]
+    side_a = type_of_data
     test_square = Square(side_a)
     assert test_square.area == side_a * side_a, 'Расчет площади квадрата неверен'
 
@@ -59,17 +56,17 @@ def test_square_area_posit(type_of_data, get_data_square_positive):
 @pytest.mark.negot
 @pytest.mark.parametrize('type_of_data',
                          [
-                             'str',
-                             'bool',
-                             'zero'
+                             '2',
+                             True,
+                             0
                           ],
                          ids=[
                              'str as sides',
                              'bool as sides',
                              'zeros as sides'
                          ])
-def test_square_creat_negot(type_of_data, get_data_square_negotive):
+def test_square_creat_negot(type_of_data):
     """Негативные тесты создания объектов Квадрата"""
-    side_a = get_data_square_negotive[type_of_data]
+    side_a = type_of_data
     with pytest.raises(ValueError):
         Square(side_a)
